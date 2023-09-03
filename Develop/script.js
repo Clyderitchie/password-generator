@@ -23,28 +23,59 @@ function writePassword() {
 // }
 // getRandomNum();
 
+// function generatePassword() {
+//   var userChoice = prompt('Choose a password length between 8 and 128 characters: ' );
+//   var includeNum = window.confirm('Would you like to have numbers in your password');
+//   var includeLower = window.confirm('Would you like any lower case letters in your password?');
+//   var includeUpper = window.confirm('Would you like any upper case letters in your password?');
+//   var includeSpeical = window.confirm('Would you like any special characters in your password?');
+//   if (userChoice === includeNum) {
+//     newPassword += num;
+//   } else if (userChoice === includeLower) {
+//     newPassword += low
+//   } else if (userChoice === includeUpper) {
+//     newPassword += upper
+//   } else if (userChoice === includeSpeical) {
+//     newPassword += speical
+//   } else {
+//     newPassword = []
+//   }
+  
+// }
+  
+
 function generatePassword() {
-  // var userChoice = prompt('Choose a password length between 8 and 128 characters: ' );
+  var userChoice = prompt('Choose a password length between 8 and 128 characters: ' );
   var includeNum = window.confirm('Would you like to have numbers in your password');
   var includeLower = window.confirm('Would you like any lower case letters in your password?');
   var includeUpper = window.confirm('Would you like any upper case letters in your password?');
   var includeSpeical = window.confirm('Would you like any special characters in your password?');
-  if (userChoice === includeNum) {
-    newPassword += num;
-  } else if (userChoice === includeLower) {
-    newPassword += low
-  } else if (userChoice === includeUpper) {
-    newPassword += upper
-  } else if (userChoice === includeSpeical) {
-    newPassword += speical
+
+  if (userChoice >= 8 && userChoice <= 128) {
+    if (includeNum) {
+      newPassword =+ generateRandomNum;
+    }
+    if (includeLower) {
+      newPassword += generateRandomLower;
+    }
+    if (includeUpper) {
+      newPassword += generateRandomUpper;
+    }
+    if (includeSpecial) {
+      newPassword += generateRandomSpeical;
+    }
+    while (newPassword.length < userChoice) {
+      newPassword += generateRandomCharacters;
+    }
   } else {
-    newPassword = []
+    newPassowrd += generateRandomPassword;
   }
-  
 }
 
+
+
+
+
 generatePassword();
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
