@@ -1,9 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var low = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-var speical = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+// var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// var low = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+// var speical = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var newPassword = [];
 
 
@@ -53,28 +53,54 @@ function generatePassword() {
 
   if (userChoice >= 8 && userChoice <= 128) {
     if (includeNum) {
-      newPassword =+ generateRandomNum;
+      newPassword =+ generateRandomNum();
     }
     if (includeLower) {
-      newPassword += generateRandomLower;
+      newPassword += generateRandomLower();
     }
     if (includeUpper) {
-      newPassword += generateRandomUpper;
+      newPassword += generateRandomUpper();
     }
     if (includeSpecial) {
-      newPassword += generateRandomSpeical;
+      newPassword += generateRandomSpeical();
     }
     while (newPassword.length < userChoice) {
-      newPassword += generateRandomCharacters;
+      newPassword += generateRandomCharacters();
     }
+    alert('Your new password is: ' + newPassword);
   } else {
-    newPassowrd += generateRandomPassword;
+    alert('Invald selection. Please chose a length within the guidelines for your password length.');
   }
 }
 
 
+function generateRandomNum() {
+  var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  return Math.floor(Math.random() * num.length);
+}
 
+function generateRandomLower() {
+  var low = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  return Math.floor(Math.random() * low.length);
+}
 
+function generateRandomUpper() {
+  var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  return Math.floor(Math.random() * upper.length);
+}
+
+function generateRandomSpeical() {
+  var speical = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+  return Math.floor(Math.random() * special.length);
+}
+
+function generateRandomCharacters() {
+  var randomChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+  '@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+  return Math.floor(Math.random() * randomChar.length);
+}
 
 generatePassword();
 // Add event listener to generate button
