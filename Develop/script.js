@@ -5,6 +5,8 @@ var low = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var speical = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var newPassword = [];
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -14,15 +16,18 @@ function writePassword() {
 
 }
 
+function getRandomNum(){
+  var min = Math.floor(8);
+  var max = Math.ceil(128);
+  return Math.floor(Math.random * (max - min + 1) + min );
+}
+getRandomNum();
+
 function generatePassword() {
-  if (password >= 8 && password <= 128) {
-    console.log(generatePassword);
-  }
+  var userChoice = prompt('Choose a password length between 8 and 128 characters: ');
+  
 }
 
 generatePassword();
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
