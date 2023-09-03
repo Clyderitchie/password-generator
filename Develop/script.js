@@ -21,15 +21,23 @@ function generatePassword() {
   if (userChoice >= 8 && userChoice <= 128) {
     if (includeNum) {
       newPassword += generateRandomNum();
-    } 
+    } else {
+      newPassword;
+    }
     if (includeLower) {
       newPassword += generateRandomLower();
+    } else {
+      newPassword;
     }
     if (includeUpper) {
       newPassword += generateRandomUpper();
+    } else {
+      newPassword;
     }
     if (includeSpeical) {
       newPassword += generateRandomSpeical();
+    } else {
+      newPassword;
     }
     while (newPassword.length < userChoice) {
       newPassword += generateRandomCharacters();
