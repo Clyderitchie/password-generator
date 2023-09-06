@@ -11,14 +11,21 @@ function writePassword() {
 }
 
 function generatePassword() {
-  var userChoice = prompt('Choose a password length between 8 and 128 characters');
+  var userChoice = prompt('Please chose a password length');
+
+  while (userChoice < 8 || userChoice > 128) {
+    userChoice = prompt('Invalid selection. Please select a password length between 8 and 128 characters.');
+  }
+
   var includeNum = window.confirm('Would you like to have numbers in your password');
   var includeLower = window.confirm('Would you like any lower case letters in your password?');
   var includeUpper = window.confirm('Would you like any upper case letters in your password?');
   var includeSpeical = window.confirm('Would you like any special characters in your password?');
   var newPassword = [];
 
-  if (userChoice >= 8 && userChoice <= 128) {
+  // if (userChoice >= 8 && userChoice <= 128) {
+
+  while (newPassword.length < userChoice) {
     if (includeNum) {
       newPassword += generateRandomNum();
     } else {
@@ -39,14 +46,11 @@ function generatePassword() {
     } else {
       newPassword;
     }
-    while (newPassword.length < userChoice) {
-      newPassword += generateRandomCharacters();
-    }
-    alert('Your new password is: ' + newPassword);
-  } else {
-    alert('Invald selection. Please chose a length within the guidelines for your password length.');
   }
+  alert('Your new password is: ' + newPassword);
 }
+
+// }
 
 
 function generateRandomNum() {
@@ -69,10 +73,10 @@ function generateRandomSpeical() {
   return speical[Math.floor(Math.random() * speical.length)];
 }
 
-function generateRandomCharacters() {
-  var randomChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
-  return randomChar[Math.floor(Math.random() * randomChar.length)];
-}
+// function generateRandomCharacters() {
+//   var randomChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+//   return randomChar[Math.floor(Math.random() * randomChar.length)];
+// }
 
 generatePassword();
 
